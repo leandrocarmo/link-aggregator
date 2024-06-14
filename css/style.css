@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+/*Variables Dark and Light mode */
 :root {
     --text-color: #fff;
     --bg-url: url(../assets/bg-mobile.jpg);
@@ -24,6 +25,7 @@
     --switch-bg-url: url(../assets/sun.svg);
 }
 
+/*Default style*/
 body {
     background: var(--bg-url) no-repeat top center/cover;
     height: 100vh;
@@ -77,11 +79,11 @@ body * {
     top: 50%;
     z-index: 1;
     transform: translateY(-50%);
+    animation: slide-dark 0.4s;
 }
 
 .light #switch button {
-    right: 0;
-    left: initial;
+    animation: slide-light 0.4s forwards;
 }
 
 #switch span {
@@ -149,6 +151,7 @@ footer {
     font-size: 14px;
 }
 
+/* Media queries */
 @media (min-width: 700px) {
     :root {
         --bg-url: url(../assets/bg-desktop.jpg);
@@ -156,5 +159,24 @@ footer {
 
     .light {
         --bg-url: url(../assets/bg-desktop-light.jpg);
+    }
+}
+
+/* Animation */
+@keyframes slide-light {
+    from {
+        left: 0;
+    }
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-dark {
+    from {
+        left: 50%;
+    }
+    to {
+        left: 0;
     }
 }
